@@ -19,14 +19,14 @@ There are now a couple of important files in the repository
 ## Snakefile
 The `Snakefile` contains the main functionality of the workflow and is located in the `workflow` folder. Obviously it defines a `rule all` to trigger the workflow and then I created three rules that the workflow consists of. Apparently the functionality is total non-sense, the important parts are the `resources`-section. You can see, I define here e.g. `time` or `partition` or keep it empty, depending on what I believe the rule needs.
 
-## Profile
+## Profile config.yaml
 The cluster profile is stored in `profiles/Puhti/config.yaml`. Here it is important for own profiles, that the file need to be named `config.yaml`, only the folder where it is located in can change! The file itself defines then the executor I need, the default resource values as well as the submission command, using variables. 
 
 Here, I define every singly argument that I want to pass to the server as a resource. This looks abit silly, but I have not found a better way to define e.g. the default input for `account`.
 
 Further, the jobid uses global rule variables like `jobid` and `rule` to have more generic names for the jobs to help better error tracing in a real workflow. Also, please notice that the variable names in the default section do not need to be similar to the slurm variables, it is only important that the options in the call itself are exactly correct.
 
-## Config
+## config.yaml
 The configuration of the pipeline happens then in the file `config/config.yaml`. Here I would have now my whole pipeline configuration as well as the personal adjustments for the resource allocations, e.g for long running tasks, high memory and different partitions. 
 
 ## Starting wrapper
