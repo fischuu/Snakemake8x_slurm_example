@@ -20,7 +20,7 @@ There are now a couple of important files in the repository
 The `Snakefile` contains the main functionality of the workflow and is located in the `workflow` folder. Obviously it defines a `rule all` to trigger the workflow and then I created three rules that the workflow consists of. Apparently the functionality is total non-sense, the important parts are the `resources`-section. You can see, I define here e.g. `time` or `partition` or keep it empty, depending on what I believe the rule needs.
 
 ## Profile config.yaml
-The cluster profile is stored in `profiles/Puhti/config.yaml`. Here it is important for own profiles, that the file need to be named `config.yaml`, only the folder where it is located in can change! The file itself defines then the executor I need, the default resource values as well as the submission command, using variables. 
+The cluster profile is stored in `profiles/Puhti/config.yaml`. Puhti is the name of our computing cluster, so one could create here different profiles for different clusters, or call it generic just `Slurm` also. Here it is important for own profiles, that the file need to be named `config.yaml`, only the folder where it is located in can change! The file itself defines then the executor I need, the default resource values as well as the submission command, using variables. 
 
 Here, I define every singly argument that I want to pass to the server as a resource. This looks abit silly, but I have not found a better way to define e.g. the default input for `account`.
 
