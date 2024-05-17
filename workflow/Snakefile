@@ -1,12 +1,3 @@
-#import pandas as pd
-#from snakemake.utils import validate, min_version
-#from multiprocessing import cpu_count
-#import glob
-#import re
-#import os
-#import sys
-#import yaml
-
 rule all:
     input:
         "final.txt"
@@ -16,6 +7,9 @@ rule all:
 rule hello:
     output:
         "results.txt"
+    resources:
+        time = config["resources"]["time"]["verylongrun"],
+        partition = config["resources"]["partition"]["small"]
     shell:
         "echo 'Hello, Snakemake!' > {output}"
 
@@ -24,8 +18,6 @@ rule process:
         "results.txt"
     output:
         "processed.txt"
-    resources:
-        time = config["resources"]["time"]["longrun"]
     shell:
         "cat {input} | awk '{{print $1}}' > {output}"
 

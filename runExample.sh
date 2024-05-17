@@ -1,6 +1,6 @@
 pipelineFolder="/users/fischerd/git/Snakemake8x_slurm_example"
 projectFolder="/users/fischerd/git/Snakemake8x_slurm_example"
-Profile=$projectFolder/config/Puhti
+Profile=$projectFolder/profiles/Puhti
 
 # Make Snakemake available 
 ################################################################################
