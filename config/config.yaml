@@ -1,0 +1,17 @@
+#################################
+##
+## Runtime variables
+
+results-folder: "results/"
+
+#################################
+##
+## Server configuration
+
+resources:
+    time: 
+        longrun: 5
+        shortrun: 1
+    mem_per_cpu:
+        highmem: 8000
+        lowmem: 1000

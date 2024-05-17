@@ -1,0 +1,40 @@
+#import pandas as pd
+#from snakemake.utils import validate, min_version
+#from multiprocessing import cpu_count
+#import glob
+#import re
+#import os
+#import sys
+#import yaml
+
+rule all:
+    input:
+        "final.txt"
+
+# Below here are the rules of the workflow, which would be normally in separate *.smk files then
+
+rule hello:
+    output:
+        "results.txt"
+    shell:
+        "echo 'Hello, Snakemake!' > {output}"
+
+rule process:
+    input:
+        "results.txt"
+    output:
+        "processed.txt"
+    resources:
+        time = config["resources"]["time"]["longrun"]
+    shell:
+        "cat {input} | awk '{{print $1}}' > {output}"
+
+rule finalize:
+    input:
+        "processed.txt"
+    output:
+        "final.txt"
+    resources:
+        time =  config["resources"]["time"]["shortrun"]
+    shell:
+        "cat {input} | sort > {output}"
